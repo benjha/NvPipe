@@ -571,6 +571,9 @@ private:
                 encodeConfig.rcParams.maxBitRate = encodeConfig.rcParams.averageBitRate;
                 encodeConfig.rcParams.vbvInitialDelay = encodeConfig.rcParams.vbvBufferSize;
             }
+            // SIGHT_FrameServer MOD: setting Profile BASELINE
+            if (this->codec == NVPIPE_H264)
+                encodeConfig.profileGUID = NV_ENC_H264_PROFILE_BASELINE_GUID;
 
             encoder->CreateEncoder(&initializeParams);
         }
